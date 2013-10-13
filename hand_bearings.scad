@@ -7,14 +7,10 @@ module finger_tip(length=15){
 difference(){
 translate([-5.5,-2.5,-1])cube([11,6,length]);
 #translate([-10,0.5,10])rotate([0,90,0])cylinder(r=4.4/2,h=30);
-
 }
-//translate([-1.5,0,14])sphere(4);
-
 translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
-
-
 }
+
 
 
 
@@ -40,10 +36,39 @@ translate([0,0,2.5])inner_joint();
 translate([-5/2,-14.5,2])cube([5,5,5]);
 }
 
+module intermediate_bone(length=30){
+difference(){
+translate([-5.5,-2.5,-1])cube([11,6,length]);
+#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+}
+translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
+translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
 
-//translate([0,0,length])sphere(10);
+}
 
+module proximal_bone(length=60){
+difference(){
+translate([-5.5,-2.5,-1])cube([11,6,length]);
+#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+}
+translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
+translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
 
-finger_tip();
+}
+
+module metacarpal_bone(length=60){
+difference(){
+translate([-5.5,-2.5,-1])cube([11,6,length]);
+#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+}
+translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
+translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
+
+}
+
+//metacarpal_bone(90);
+//proximal_bone(60);
+intermediate_bone(35);
+//finger_tip();
 //translate([0,0,2])inner_joint();
 //rotate([0,90,0])outer_joint();
