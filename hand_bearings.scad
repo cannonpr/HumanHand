@@ -5,8 +5,8 @@ $fn=100;
 //120
 module finger_tip(length=15){
 difference(){
-translate([-5.5,-3,-1])cube([11,6,length]);
-#translate([-10,0,10])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+translate([-5.5,-2.5,-1])cube([11,6,length]);
+#translate([-10,0.5,10])rotate([0,90,0])cylinder(r=4.4/2,h=30);
 
 }
 //translate([-1.5,0,14])sphere(4);
