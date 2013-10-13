@@ -4,26 +4,26 @@ $fn=100;
 //60
 //120
 module finger_tip(length=25){
-cylinder(h = length, r=4);
+cylinder(h = length, r=6);
 
-sphere(4);
+sphere(8);
 
 difference(){
-translate([0,0,length])sphere(5);
-#translate([-4,-4,29])cube([8,8,5]);
+translate([0,0,length])sphere(6);
+#translate([-6,-6,29])cube([12,12,5]);
 }
 }
 
 
 module finger_bone(length=25){
-cube([4,4,length]);
+cube([6,6,length]);
 
 difference(){
 
 //translate([0,8/2,0])rotate([0,90,0])cylinder(h = 8, r=8);
 
 }
-translate([2,2,0])sphere(5);
+translate([3,3,0])sphere(8);
 }
 
 module joint(bearing_size=10,bearing_width=5){
@@ -39,8 +39,8 @@ rotate([0,90,0]){cylinder(h = bearing_width+5, r=(bearing_size/2)+2);}
 module joint_sphere(ball_size=10){
 
 difference(){
-sphere(ball_size);
-sphere(ball_size-1);
+sphere(ball_size+2);
+sphere(ball_size+0.5);
 #translate([-15,-15,-2])cube([30,30,20]);
 
 
@@ -54,7 +54,7 @@ sphere(ball_size-1);
 finger_tip(25);
 union(){
 //finger_bone(30);
-//translate([2,2,34])joint_sphere(5);
+//translate([3,3,38.5])joint_sphere(8);
 }
 //finger_bone(60);
-//translate([2,2,64])joint_sphere(5);
+//translate([3,3,68.5])joint_sphere(8);
