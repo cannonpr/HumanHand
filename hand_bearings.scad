@@ -30,20 +30,23 @@ cylinder(r=4.4/2,h=30);
 #translate([0,0,1.5])cylinder(r=9/2,h=7);
 translate([0,3,2])cylinder(r=(bearing_size+12)/2,h=6);
 translate([0,0,2.5])inner_joint();
-#translate([5.5,-10,0])cube([5,25,10]);
-#translate([-10.5,-10,0])cube([5,25,10]);
+#translate([8.5,-10,0])cube([5,25,10]);
+#translate([-13.5,-10,0])cube([5,25,10]);
 }
-translate([-5/2,-14.5,2])cube([5,5,5]);
+//translate([-5/2,-14.5,2])cube([5,5,5]);
 }
 
-module intermediate_bone(length=30){
+module intermediate_bone(length=25){
+union(){
 difference(){
-translate([-5.5,-2.5,-1])cube([11,6,length]);
+translate([-17/2,-2,-1])cube([17,5,length]);
 #translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+#translate([0,-3,length])rotate([-90,0,0])cylinder(r=13/2,h=7);
 }
-translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
-translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
 
+translate([0,-2,length])rotate([-90,0,0])inner_joint();
+}
+translate([0,-4.5,-9])rotate([-90,0,0])outer_joint();
 }
 
 module proximal_bone(length=60){
@@ -66,9 +69,9 @@ translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
 
 }
 
-//metacarpal_bone(90);
-//proximal_bone(60);
-intermediate_bone(35);
+//metacarpal_bone(80);
+//proximal_bone(50);
+rotate([0,90,0])intermediate_bone(25);
 //finger_tip();
 //translate([0,0,2])inner_joint();
 //rotate([0,90,0])outer_joint();
