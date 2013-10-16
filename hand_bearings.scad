@@ -5,10 +5,15 @@ $fn=100;
 //120
 module finger_tip(length=15){
 difference(){
-translate([-5.5,-2.5,-1])cube([11,6,length]);
-#translate([-10,0.5,10])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+hull(){
+translate([-17/2,-2,-1])cube([17,5,length]);
+translate([0,-2,length])rotate([-90,0,0])inner_joint();
+}
+#translate([-10,0.5,length-4])rotate([0,90,0])cylinder(r=3.3/2,h=30);
+translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
 }
 translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
+
 }
 
 
@@ -40,7 +45,7 @@ module intermediate_bone(length=25){
 union(){
 difference(){
 translate([-17/2,-2,-1])cube([17,5,length]);
-#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+#translate([-10,0.5,length-10])rotate([0,90,0])cylinder(r=3.3/2,h=30);
 #translate([0,-3,length])rotate([-90,0,0])cylinder(r=13/2,h=7);
 }
 
@@ -51,27 +56,30 @@ translate([0,-4.5,-9])rotate([-90,0,0])outer_joint();
 
 module proximal_bone(length=60){
 difference(){
-translate([-5.5,-2.5,-1])cube([11,6,length]);
-#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+translate([-17/2,-2,-1])cube([17,5,length]);
+#translate([-10,0.5,length-10])rotate([0,90,0])cylinder(r=3.3/2,h=30);
+#translate([0,-3,length])rotate([-90,0,0])cylinder(r=13/2,h=7);
+
 }
 translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
-translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
+translate([0,-2,length])rotate([-90,0,0])inner_joint();
 
 }
 
 module metacarpal_bone(length=60){
 difference(){
-translate([-5.5,-2.5,-1])cube([11,6,length]);
-#translate([-10,0.5,length-5])rotate([0,90,0])cylinder(r=4.4/2,h=30);
+translate([-17/2,-2,-1])cube([17,5,length]);
+#translate([-10,0.5,length-10])rotate([0,90,0])cylinder(r=3.3/2,h=30);
+#translate([0,-3,length])rotate([-90,0,0])cylinder(r=13/2,h=7);
 }
 translate([0,-4.5,-10])rotate([-90,0,0])outer_joint();
-translate([0,-2,length+6])rotate([-90,0,0])inner_joint();
+translate([0,-2,length])rotate([-90,0,0])inner_joint();
 
 }
 
-//metacarpal_bone(80);
-//proximal_bone(50);
-rotate([0,90,0])intermediate_bone(25);
-//finger_tip();
+//rotate([0,90,0])metacarpal_bone(80);
+//rotate([0,90,0])proximal_bone(50);
+//rotate([0,90,0])intermediate_bone(25);
+rotate([0,90,0])finger_tip();
 //translate([0,0,2])inner_joint();
 //rotate([0,90,0])outer_joint();
