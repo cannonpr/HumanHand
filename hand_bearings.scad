@@ -147,28 +147,30 @@ module metacarpal_bone(length=20){
 length = length - 30;
 difference(){
 union(){
-translate([-10/2,-4,-5])cube([10,15,length]);
+
 translate([4.6,3.5,-5])cylinder(r=11/2,h=length);
-translate([-2-3,3.5,0])rotate([0,90,0])cylinder(r=9.5,h=8);
-translate([-2-3,3.5,length])rotate([0,90,0])cylinder(r=9.5,h=8);
+
+translate([4,-4,12])rotate([0,0,90])cylinder(r=4.8/2,h=length-20);
+translate([4,11,12])rotate([0,0,90])cylinder(r=4.8/2,h=length-20);
+
+translate([2,-4,12])rotate([0,0,90])cylinder(r=1,h=length-20);
+translate([2,11,12])rotate([0,0,90])cylinder(r=1,h=length-20);
+
+translate([-10/2,-4,-5])cube([10,15,length]);
+
 }
 //primary bone
-translate([5,3.5,8])rotate([0,0,0])cylinder(r=3.5,h=35);
-translate([0,3.5,8])rotate([0,0,0])cylinder(r=3.5,h=35);
+#translate([5,3.5,-5])rotate([0,0,0])cylinder(r=3.5,h=55);
+#translate([0,3.5,-5])rotate([0,0,0])cylinder(r=3.5,h=55);
 
-//end primary bone
+#translate([4,-4,-10])rotate([0,0,90])cylinder(r=3.8/2,h=200);
+#translate([4,11,-10])rotate([0,0,90])cylinder(r=3.8/2,h=200);
 
-#translate([-5.1,-5,length+24])rotate([0,90,0])cube([20,20,9]);
-#translate([-5.1,-5,-4])rotate([0,90,0])cube([20,20,9]);
+#translate([-5.1,3.5,-8])rotate([0,90,0])cylinder(r=8.2,h=20);
+#translate([-5.1,3.5,length-2])rotate([0,90,0])cylinder(r=8.2,h=20);
 
-#translate([0,3.5,0.5])rotate([0,90,0])cylinder(r=10.5,h=20);
-translate([-5,3.5,0])rotate([0,90,0])cylinder(r=3.2/2,h=20);
-translate([-20,3.5,-20])rotate([0,30,0])cylinder(r=4.2/2,h=40);
-translate([-5.1,3.5,0])rotate([0,90,0])cylinder(r=6.2/2,h=3);
 
-#translate([0,3.5,length])rotate([0,90,0])cylinder(r=10.5,h=20);
 translate([-5,3.5,length])rotate([0,90,0])cylinder(r=3.2/2,h=20);
-#translate([-0,3.5,length-15])rotate([0,-30,0])cylinder(r=4.2/2,h=400);
 translate([-5.1,3.5,length])rotate([0,90,0])cylinder(r=6.2/2,h=3);
 
 }
@@ -178,7 +180,7 @@ module metacarpal_joint(length=20){
 length = length - 60;
 difference(){
 union(){
-translate([-3,3.5,-1])rotate([0,90,0])cylinder(r=8.5,h=14);
+translate([-3,3.5,-1])rotate([0,90,0])cylinder(r=8,h=14);
 translate([-3,-4.5,6])cube([14,16,9]);
 }
 
@@ -188,8 +190,8 @@ translate([2,-4.5,length-11])rotate([-90,0,0])inner_carpal_joint();
 
 
 #translate([4,14,0])rotate([90,0,0])cylinder(r=3.4/2,h=20);
-#translate([4,-5,-10])rotate([0,0,90])cylinder(r=3.4/2,h=20);
-#translate([4,12,-10])rotate([0,0,90])cylinder(r=3.4/2,h=20);
+#translate([4,-4,-10])rotate([0,0,90])cylinder(r=3.4/2,h=20);
+#translate([4,11,-10])rotate([0,0,90])cylinder(r=3.4/2,h=20);
 
 //translate([-1,3.5,-2])rotate([0,90,0])cylinder(r=9.5,h=20);
 }
