@@ -48,11 +48,11 @@ translate([displace3,displace,displace2])rotate([0,0,0])cylinder(r=6/2,h=inner-4
 }
 
 difference(){
-translate([6.5,-20,8])rotate([-90,0,0])cylinder(r=2.2,h=300);
-translate([displace3,displace,displace2])rotate([0,0,0])cylinder(r=6/2,h=inner-4);
+translate([7.5,-20,8])rotate([-90,0,0])cylinder(r=4/2,h=300);
+translate([displace3,displace,displace2])rotate([0,0,0])cylinder(r=5/2,h=inner-4);
 }
 difference(){
-translate([-2.5,-20,8])rotate([-90,0,0])cylinder(r=2.2,h=300);
+translate([-3.5,-20,8])rotate([-90,0,0])cylinder(r=4/2,h=300);
 translate([displace3,displace,displace2])rotate([0,0,0])cylinder(r=6/2,h=inner-4);
 }
 
@@ -147,18 +147,23 @@ module metacarpal_bone(length=20){
 length = length - 30;
 difference(){
 union(){
-translate([4.6,3.5,-5])cylinder(r=11/2,h=length);
-translate([-10/2,-4,-5])cube([10,15,length]);
+//translate([4.6,3.5,-5])cylinder(r=11/2,h=length);
+translate([0,0,0])cube([14,12,length]);
 }
 //primary bone
-translate([5,3.5,-5])rotate([0,0,0])cylinder(r=3.5,h=55);
-translate([0,3.5,-5])rotate([0,0,0])cylinder(r=3.5,h=55);
-translate([5,0,-5])rotate([0,-180,0])metacarpal_joint();
-translate([-5,3.5,length])rotate([0,90,0])cylinder(r=3.2/2,h=20);
-translate([-5.1,3.5,length])rotate([0,90,0])cylinder(r=6.2/2,h=3);
-translate([1,20,10])rotate([90,0,0])cylinder(r=3.4/2,h=40);
-#translate([-3,7.5,8])rotate([0,0,0])cube([10,2.5,4]);
-#translate([-3,-3,8])rotate([0,0,0])cube([10,2.5,4]);
+#translate([9.5,12/2,-5])rotate([0,0,0])cylinder(r=3.5,h=70);
+translate([4.5,12/2,-5])rotate([0,0,0])cylinder(r=3.5,h=70);
+//#translate([5,0,15])rotate([0,-180,0])metacarpal_joint();
+translate([-1,12/2,5])rotate([0,90,0])cylinder(r=3.4/2,h=18);
+
+
+
+
+
+
+
+
+
 }
 
 }
@@ -167,11 +172,12 @@ module metacarpal_joint(length=20){
 length = length - 60;
 difference(){
 union(){
-translate([4,3.5,2])sphere(9);//rotate([0,90,0])cylinder(r=8,h=14);
-translate([-3,-4.5,6])cube([14,16,9]);
+cube([10,25,10]);
+translate([5,20,-5])rotate([0,0,0])cylinder(r=10,h=20);
 }
-translate([2,-4.5,length-11])rotate([-90,0,0])inner_carpal_joint();
-translate([4,3.5,-14])rotate([0,0,90])cylinder(r=3.4/2,h=20);
+translate([-3,5.5,7])rotate([0,90,0])inner_carpal_joint();
+translate([5,24,-2.5])rotate([0,0,0])cylinder(r=12,h=15);
+#translate([5,20,-6])rotate([0,0,0])cylinder(r=3.4/2,h=25);
 }
 
 }
@@ -215,4 +221,4 @@ translate([0,0,-radious/2])sphere(radious);
 //wrist();
 //translate([1,110,0])rotate([0,90,0])metacarpal_joint(80);
 //translate([0,110,0])rotate([0,-90,0])metacarpal_bone(80);
-translate([1,140,0])rotate([0,0,0])metacarpal_joint(80);
+translate([1,140,0])rotate([90,0,0])metacarpal_joint(80);
