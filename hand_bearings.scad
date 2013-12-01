@@ -147,23 +147,21 @@ module metacarpal_bone(length=20){
 length = length - 30;
 difference(){
 union(){
-//translate([4.6,3.5,-5])cylinder(r=11/2,h=length);
-translate([0,0,0])cube([14,12,length]);
+translate([0,0,0])cube([16,6,length]);
+translate([18,3,8])cylinder(r=6.5/2,h=length-8);
+translate([-2,3,8])cylinder(r=6.5/2,h=length-8);
 }
 //primary bone
-#translate([9.5,12/2,-5])rotate([0,0,0])cylinder(r=3.5,h=70);
-translate([4.5,12/2,-5])rotate([0,0,0])cylinder(r=3.5,h=70);
-//#translate([5,0,15])rotate([0,-180,0])metacarpal_joint();
-translate([-1,12/2,5])rotate([0,90,0])cylinder(r=3.4/2,h=18);
+translate([18,3,8])cylinder(r=4.5/2,h=length);
+translate([-2,3,8])cylinder(r=4.5/2,h=length);
+//#translate([6,3,-2])cylinder(r=3.4/2,h=length+20);
+//#translate([6,9,-2])cylinder(r=3.4/2,h=length+20);
+//#translate([6,11,0])cylinder(r=10/2,h=length+20);
+//#translate([6,-1,0])cylinder(r=10/2,h=length+20);
+translate([-10,3,5])rotate([0,90,0])cylinder(r=3.4/2,h=100);
+translate([2,2,1])rotate([0,90,0])cylinder(r=10,h=12);
 
-
-
-
-
-
-
-
-
+//#translate([6,3,6])sphere(6);
 }
 
 }
@@ -172,16 +170,63 @@ module metacarpal_joint(length=20){
 length = length - 60;
 difference(){
 union(){
-cube([10,25,10]);
-translate([5,20,-5])rotate([0,0,0])cylinder(r=10,h=20);
+cube([12,25,10]);
+
 }
-translate([-3,5.5,7])rotate([0,90,0])inner_carpal_joint();
-translate([5,24,-2.5])rotate([0,0,0])cylinder(r=12,h=15);
-#translate([5,20,-6])rotate([0,0,0])cylinder(r=3.4/2,h=25);
+translate([-0.5,15,6])cube([15,16,13]);
+translate([-0.5,15,-6])cube([15,16,13]);
+translate([-2,5.5,7])rotate([0,90,0])inner_carpal_joint();
+//translate([5,24,-2.5])rotate([0,0,0])cylinder(r=12,h=15);
+
 }
+translate([6,27,5])rotate([90,0,0])cylinder(h=13,r=3);
+translate([6,27,5])sphere(6);
+}
+
+module metacarpal_lower_socket(length=20){
+length = length - 60;
+difference(){
+union(){
+translate([0,0,0])sphere(8);
+}
+translate([0,0,0])sphere(6.5);
+translate([0,-20,-10])cube([40,40,20])
+//translate([5,24,-2.5])rotate([0,0,0])cylinder(r=4,h=15);
+translate([6,29,5])rotate([90,0,0])cylinder(h=14,r=6.5);
+}
+
 
 }
 
+module metacarpal_upper_socket(length=20){
+length = length - 60;
+difference(){
+union(){
+translate([0,0,0])sphere(8);
+}
+translate([0,0,0])sphere(6.5);
+translate([0,-20,-10])cube([40,40,20]);
+#translate([-6,0,-10])rotate([0,0,0])cylinder(r=4,h=25);
+#translate([-6,10,-0])rotate([90,0,0])cylinder(r=4,h=25);
+#translate([-10,0,0])rotate([0,90,0])cylinder(r=4,h=25);
+translate([6,29,5])rotate([90,0,0])cylinder(h=14,r=6.5);
+}
+}
+
+module metacarpal_ball(length=20){
+length = length - 60;
+difference(){
+union(){
+translate([0,0,0])sphere(6);
+}
+
+
+
+#translate([0,0,-8])rotate([0,0,0])cylinder(r=3.4/2,h=25);
+#translate([-10,0,0])rotate([0,90,0])cylinder(r=3.4/2,h=25);
+
+}
+}
 
 module wrist(){
 difference(){
@@ -220,5 +265,8 @@ translate([0,0,-radious/2])sphere(radious);
 
 //wrist();
 //translate([1,110,0])rotate([0,90,0])metacarpal_joint(80);
-//translate([0,110,0])rotate([0,-90,0])metacarpal_bone(80);
-translate([1,140,0])rotate([90,0,0])metacarpal_joint(80);
+translate([0,110,0])rotate([90,0,0])metacarpal_bone(80);
+//translate([15,111,2])rotate([0,90,0])metacarpal_joint(80);
+//translate([15,115,2])rotate([0,90,0])metacarpal_lower_socket(80);
+//translate([15,145,2])rotate([0,90,0])metacarpal_upper_socket(80);
+translate([8,110,6])rotate([0,90,0])metacarpal_ball(80);
